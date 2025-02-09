@@ -9,9 +9,6 @@ on:
   workflow_dispatch:
 
 jobs:
-permissions:
-  contents: read
-  packages: write
   redocker:
     runs-on: "ubuntu-latest"
     strategy:
@@ -22,6 +19,10 @@ permissions:
           - "linux"
           - "windows"
           - "web"
+    
+    permissions:
+     contents: read
+     packages: write
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
