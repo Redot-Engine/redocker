@@ -1,7 +1,5 @@
 name: "Build Redocker Images"
-permissions:
-  contents: read
-  packages: write
+
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -11,6 +9,9 @@ on:
   workflow_dispatch:
 
 jobs:
+permissions:
+  contents: read
+  packages: write
   redocker:
     runs-on: "ubuntu-latest"
     strategy:
