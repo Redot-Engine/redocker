@@ -39,5 +39,5 @@ jobs:
           secrets: |
             "github_token=${{ secrets.GITHUB_TOKEN }}"
           tags: |
-            ghrc.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:latest
+            ghcr.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:latest
             ghcr.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:${{ github.run_number }}
