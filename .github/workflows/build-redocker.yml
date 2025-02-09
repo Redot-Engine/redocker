@@ -1,0 +1,39 @@
+name: "Build Redocker Images"
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches:
+      - "main"
+  workflow_dispatch:
+
+jobs:
+  redocker:
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        version:
+          - "4.3"
+        target:
+          - "linux"
+          - "windows"
+          - "web"
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:redocker"
+          push: true
+          build-args: |
+            REDOT_VERSION=${{ matrix.version }}
+            REDOT_TARGET=${{ matrix.target }}
+          secrets: |
+            "github_token=${{ secrets.GITHUB_TOKEN }}"
+          tags: |
+            ghrc.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:latest
+            ghcr.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:${{ github.run_number }}
