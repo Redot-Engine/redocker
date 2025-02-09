@@ -1,5 +1,7 @@
 name: "Build Redocker Images"
-
+permissions:
+  contents: read
+  packages: write
 on:
   schedule:
     - cron: "0 0 * * *"
