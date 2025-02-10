@@ -9,11 +9,11 @@ This is a collection of Redot Docker Images for use in CI/CD.
 | Target | Status |
 |-----------|-----|
 | `linux`   | ✅  |
-| `windows` | ❓  |
+| `windows` | ✅  |
 | `web`     | ✅  |
 | `android` | ❌  |
 | `macos`   | ❌  |
-| `ios`     | ❓  |
+| `ios`     | ❌  |
 
 ### Redocker Mono
 
