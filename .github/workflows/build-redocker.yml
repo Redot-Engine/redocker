@@ -24,9 +24,50 @@ jobs:
           - "macos"
           - "ios"
     permissions:
-     contents: read
-     packages: write
+      contents: read
+      packages: write
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Cache Redot Binary
+        uses: actions/cache@v4
+        with:
+          path: redocker/redot
+          key: redot-${{ matrix.version }}-binary
+          restore-keys: |
+            redot-${{ matrix.version }}-binary
+      - name: Prepare Binary
+        run: |
+          [ -e redocker/redot ] && exit 0
+          file=$(
+            curl -s https://api.github.com/repos/Redot-Engine/redot-engine/releases/tags/redot-${{ matrix.version }}-stable \
+            | grep "browser_download_url.*Redot_v.*-stable_linux\.x86_64\.zip" \
+            | cut -d '"' -f 4 - \
+            | head -n 1
+          )
+          wget $file -O Redot.zip
+          unzip Redot.zip
+          mv ./Redot_v*-stable_linux.x86_64 redocker/redot
+          rm Redot.zip
+      - name: Cache Redot Export Templates
+        uses: actions/cache@v4
+        with:
+          path: redocker/templates
+          key: redot-${{ matrix.version }}-templates
+          restore-keys: |
+            redot-${{ matrix.version }}-templates
+      - name: Prepare Export Templates
+        run: |
+          [ -d redocker/templates ] && exit 0
+          file=$(
+            curl -s https://api.github.com/repos/Redot-Engine/redot-engine/releases/tags/redot-${{ matrix.version }}-stable \
+            | grep "browser_download_url.*Redot_v.*-stable_export_templates\.tpz" \
+            | cut -d '"' -f 4 - \
+            | head -n 1
+          )
+          wget $file -O Redot.zip
+          unzip Redot.zip -d redocker
+          rm -f redocker/templates/*debug*
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -40,7 +81,7 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
-          context: "{{defaultContext}}:redocker"
+          context: "./redocker"
           push: true
           build-args: |
             REDOT_VERSION=${{ matrix.version }}
