@@ -10,7 +10,7 @@ This is a collection of Redot Docker Images for use in CI/CD.
 |-----------|-----|
 | `linux`   | ✅  |
 | `windows` | ❓  |
-| `web`     | ❓  |
+| `web`     | ✅  |
 | `android` | ❌  |
 | `macos`   | ❌  |
 | `ios`     | ❓  |

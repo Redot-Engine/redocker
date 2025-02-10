@@ -23,7 +23,6 @@ jobs:
           - "android"
           - "macos"
           - "ios"
-    
     permissions:
      contents: read
      packages: write
