@@ -57,6 +57,7 @@ Values for the `{target}`:
 
 Values for the `{version}`:
 | Version | Status |
+|---------|--------|
 | `4.3` | ✅ |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
