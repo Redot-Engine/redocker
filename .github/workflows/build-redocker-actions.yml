@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         ci:
+          - "github"
           - "forgejo"
         version:
           - "4.3"
