@@ -67,7 +67,7 @@ Values for the `{version}`:
 Bind your Project inside the target container:
 
 ```sh
-docker run -it --rm -v "$(pwd):/home/runner/game:Z" ghcr.io/redot-engine/redocker/minimal/linux-4.3:latest sh
+docker run -it --rm -v "$(pwd):/game:Z" ghcr.io/redot-engine/redocker/minimal/linux-4.3:latest sh
 ```
 
 Go into the Project dir
