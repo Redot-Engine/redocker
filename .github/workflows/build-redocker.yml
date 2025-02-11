@@ -15,6 +15,8 @@ jobs:
       matrix:
         version:
           - "4.3"
+        type:
+          - "minimal"
         target:
           - "linux"
           - "windows"
@@ -78,7 +80,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push image
+      - name: Build and push Image
         uses: docker/build-push-action@v6
         with:
           context: "./redocker"
@@ -89,5 +91,5 @@ jobs:
           secrets: |
             "github_token=${{ secrets.GITHUB_TOKEN }}"
           tags: |
-            ghcr.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:latest
-            ghcr.io/redot-engine/redocker/${{ matrix.target }}-${{ matrix.version }}:${{ github.run_number }}
+            ghcr.io/redot-engine/redocker/${{ matrix.type }}/${{ matrix.target }}-${{ matrix.version }}:latest
+            ghcr.io/redot-engine/redocker/${{ matrix.type }}/${{ matrix.target }}-${{ matrix.version }}:${{ github.run_number }}
