@@ -11,3 +11,10 @@ ADD redot /usr/local/bin/redot
 RUN mkdir -p /root/.local/share/redot/export_templates/$REDOT_VERSION.stable
 ADD templates/version.txt /root/.local/share/redot/export_templates/$REDOT_VERSION.stable/
 ADD templates/*$REDOT_TARGET* /root/.local/share/redot/export_templates/$REDOT_VERSION.stable/
+
+RUN case "$REDOT_TARGET" in \
+  "android") \
+    apk add --no-cache \
+      java-jdk \
+    ;; \
+  esac
