@@ -26,6 +26,7 @@ Values for the `{action-platform}`:
 |-----------|--------|
 | `github` | ❓ |
 | `forgejo` | ❓ |
+
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ### Type
@@ -35,6 +36,7 @@ Values for the `{type}`:
 |-----------|--------|
 | `minimal` | ✅ |
 | `mono` | ❌ |
+
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ### Target
@@ -48,6 +50,7 @@ Values for the `{target}`:
 | `android` | ❌ |
 | `macos` | ❌ |
 | `ios` | ❌ |
+
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ### Version
@@ -55,6 +58,7 @@ Values for the `{target}`:
 Values for the `{version}`:
 | Version | Status |
 | `4.3` | ✅ |
+
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ## Example Usage
