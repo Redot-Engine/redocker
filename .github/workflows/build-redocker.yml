@@ -70,6 +70,18 @@ jobs:
           wget $file -O Redot.zip
           unzip Redot.zip -d redocker
           rm -f redocker/templates/*debug*
+      - name: Cache Android Commandline Tools
+        uses: actions/cache@v4
+        with:
+          path: redocker/android
+          key: redot-${{ matrix.version }}-android
+          restore-keys: |
+            redot-${{ matrix.version }}-android
+        run: |
+          [ -d redocker/android ] && exit 0
+          file="https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
+          wget $file -O cli-tools.zip
+          unzip cli-tools.zip -d redocker
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
