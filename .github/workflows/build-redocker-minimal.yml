@@ -1,4 +1,4 @@
-name: "Build Redocker Images"
+name: "Build Redocker Minimal Images"
 
 on:
   schedule:
@@ -33,13 +33,13 @@ jobs:
       - name: Cache Redot Binary
         uses: actions/cache@v4
         with:
-          path: redocker/redot
+          path: minimal/redot
           key: redot-${{ matrix.version }}-binary
           restore-keys: |
             redot-${{ matrix.version }}-binary
       - name: Prepare Binary
         run: |
-          [ -e redocker/redot ] && exit 0
+          [ -e minimal/redot ] && exit 0
           file=$(
             curl -s https://api.github.com/repos/Redot-Engine/redot-engine/releases/tags/redot-${{ matrix.version }}-stable \
             | grep "browser_download_url.*Redot_v.*-stable_linux\.x86_64\.zip" \
@@ -48,18 +48,18 @@ jobs:
           )
           wget $file -O Redot.zip
           unzip Redot.zip
-          mv ./Redot_v*-stable_linux.x86_64 redocker/redot
+          mv ./Redot_v*-stable_linux.x86_64 minimal/redot
           rm Redot.zip
       - name: Cache Redot Export Templates
         uses: actions/cache@v4
         with:
-          path: redocker/templates
+          path: minimal/templates
           key: redot-${{ matrix.version }}-templates
           restore-keys: |
             redot-${{ matrix.version }}-templates
       - name: Prepare Export Templates
         run: |
-          [ -d redocker/templates ] && exit 0
+          [ -d minimal/templates ] && exit 0
           file=$(
             curl -s https://api.github.com/repos/Redot-Engine/redot-engine/releases/tags/redot-${{ matrix.version }}-stable \
             | grep "browser_download_url.*Redot_v.*-stable_export_templates\.tpz" \
@@ -67,8 +67,8 @@ jobs:
             | head -n 1
           )
           wget $file -O Redot.zip
-          unzip Redot.zip -d redocker
-          rm -f redocker/templates/*debug*
+          unzip Redot.zip -d minimal
+          rm -f minimal/templates/*debug*
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -82,7 +82,7 @@ jobs:
       - name: Build and push Image
         uses: docker/build-push-action@v6
         with:
-          context: "./redocker"
+          context: "./minimal"
           push: true
           build-args: |
             REDOT_VERSION=${{ matrix.version }}
