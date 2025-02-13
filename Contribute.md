@@ -21,7 +21,7 @@ on which other Tools can build, because of the size of:
 New Features and Tasks will first need some Discussion,
 before they can be Ready to be worked on. This state is called "RFC" (Request for Comment)
 
-An Issue might be Blocked by Temporarily by something else.
+An Issue might be Blocked temporarily by something else.
 For example, if we want to do Redot X builds, we first need to wait for Readot X to provide binaries.
 
 An Issue might also be Blocked because of License Concerns
