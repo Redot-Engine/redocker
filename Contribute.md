@@ -34,7 +34,7 @@ A License Concern might be lifted by the Core people of Redot or by a Person of 
 
 ## Terminalogy
 
-You might here some Terminalogy which you are unknown with when trying to Contribute.
+You might hear some Terminalogy which you are unknown with when trying to Contribute.
 
 - **LGTM** means "Looks Good to Me"
 - **Nack** is short for "Negative Acknowoldgement", basicly a Person blocking an Issue from Moving Forward
