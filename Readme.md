@@ -26,6 +26,7 @@ Values for the `{action-platform}`:
 | --------- | ------ |
 | `github`  | ❓     |
 | `forgejo` | ❓     |
+| `gitlab`  | ❓     |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
@@ -49,14 +50,14 @@ Which export templates do you require?
 
 Values for the `{target}`:
 
-| Target    | Status |
-| --------- | ------ |
-| `web`     | ✅     |
-| `linux`   | ✅     |
-| `windows` | ✅     |
-| `android` | ❌ #2  |
-| `macos`   | ❌ #3  |
-| `ios`     | ❌ #3  |
+| Target    | Status                                                     |
+| --------- | ---------------------------------------------------------- |
+| `web`     | ✅                                                         |
+| `linux`   | ✅                                                         |
+| `windows` | ✅                                                         |
+| `android` | ❌ [#2](https://github.com/Redot-Engine/redocker/issues/2) |
+| `macos`   | ❌ [#3](https://github.com/Redot-Engine/redocker/issues/3) |
+| `ios`     | ❌ [#3](https://github.com/Redot-Engine/redocker/issues/3) |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
