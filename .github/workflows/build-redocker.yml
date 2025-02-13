@@ -21,10 +21,9 @@ jobs:
           - "linux"
           - "windows"
           - "web"
-          # Experimental
-          - "android"
-          - "macos"
-          - "ios"
+          #- "android" Nacked in #2 for License Reasons
+          #- "macos"   Nacked in #3 for License Reasons
+          #- "ios"     Nacked in #3 for License Reasons
     permissions:
       contents: read
       packages: write

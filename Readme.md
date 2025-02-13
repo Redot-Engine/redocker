@@ -11,54 +11,64 @@ With Placeholders these Parts would look like:
 ghcr.io/redot-engine/redocker/{actions}/{action-platform}/{type}/{target}-{version}:latest
 ```
 
-| placeholder         | description                                                                                               |
-| ------------------- | --------------------------------------------------------------------------------------------------------- |
-| `{actions}`         | Is the Image for actions? if yes, put `action` here, if no, remove this segment                           |
-| `{action-platform}` | This requires `{actions}` to be present. This can either be: `github` or `forgejo`                        |
-| `{type}`            | Do you Require Mono? if no, use `minimal` if yes use `mono`                                               |
-| `{target}`          | Which export templates to you require, choose one of `web`, `linux`, `windows`, `android`, `macos`, `ios` |
-| `{version}`         | Which version of Redot are you using?                                                                     |
+### Action
+
+Is this image for a specifiy CI/CD System?
+If no, you can remove the `{actions}` and the sections requiring it.
+If it is for a specific CI/CD platform, but `actions` here.
 
 ### Action Platforms
 
+Which CI System are you using?
 Values for the `{action-platform}`:
-| Platform | Status |
-|-----------|--------|
-| `github` | ❓ |
-| `forgejo` | ❓ |
+
+| Platform  | Status |
+| --------- | ------ |
+| `github`  | ❓     |
+| `forgejo` | ❓     |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ### Type
 
+Do you require Mono?
+If no use `minimal`
+
 Values for the `{type}`:
-| Type | Status |
-|-----------|--------|
-| `minimal` | ✅ |
-| `mono` | ❌ |
+
+| Type      | Status |
+| --------- | ------ |
+| `minimal` | ✅     |
+| `mono`    | ❌     |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ### Target
 
+Which export templates do you require?
+
 Values for the `{target}`:
-| Target | Status |
-|-----------|--------|
-| `web` | ✅ |
-| `linux` | ✅ |
-| `windows` | ✅ |
-| `android` | ❌ |
-| `macos` | ❌ |
-| `ios` | ❌ |
+
+| Target    | Status |
+| --------- | ------ |
+| `web`     | ✅     |
+| `linux`   | ✅     |
+| `windows` | ✅     |
+| `android` | ❌ #2  |
+| `macos`   | ❌ #3  |
+| `ios`     | ❌ #3  |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 
 ### Version
 
+Which version of Redot are you using?
+
 Values for the `{version}`:
+
 | Version | Status |
-|---------|--------|
-| `4.3` | ✅ |
+| ------- | ------ |
+| `4.3`   | ✅     |
 
 `✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
 

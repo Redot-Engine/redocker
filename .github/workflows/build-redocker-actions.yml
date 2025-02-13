@@ -22,10 +22,9 @@ jobs:
           - "linux"
           - "windows"
           - "web"
-          # Experimental
-          - "android"
-          - "macos"
-          - "ios"
+          #- "android" Nacked in #2 for License Reasons
+          #- "macos"   Nacked in #3 for License Reasons
+          #- "ios"     Nacked in #3 for License Reasons
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
