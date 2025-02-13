@@ -2,7 +2,7 @@ name: "Build Redocker Actions Images"
 
 on:
   workflow_run:
-    workflows: ["Build Redocker Images"]
+    workflows: ["Build Redocker Minimal Images"]
     types:
       - completed
 
