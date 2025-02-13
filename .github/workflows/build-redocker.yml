@@ -77,6 +77,7 @@ jobs:
           key: redot-${{ matrix.version }}-android
           restore-keys: |
             redot-${{ matrix.version }}-android
+      - name: Prepare Android Commandline Tools
         run: |
           [ -d redocker/android ] && exit 0
           file="https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
