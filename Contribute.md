@@ -48,3 +48,5 @@ A Nack should only happen by Core Members of the Project and allways requires a 
 - Bugs
 
 or simmilar.
+
+A Nack without a Technical Reason is Invalid.
