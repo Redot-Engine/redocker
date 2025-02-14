@@ -55,11 +55,11 @@ Values for the `{target}`:
 | `web`     | ✅                                                         |
 | `linux`   | ✅                                                         |
 | `windows` | ✅                                                         |
-| `android` | ❌ [#2](https://github.com/Redot-Engine/redocker/issues/2) |
-| `macos`   | ❌ [#3](https://github.com/Redot-Engine/redocker/issues/3) |
-| `ios`     | ❌ [#3](https://github.com/Redot-Engine/redocker/issues/3) |
+| `android` | ⚖️ [#2](https://github.com/Redot-Engine/redocker/issues/2) |
+| `macos`   | ⚖️ [#3](https://github.com/Redot-Engine/redocker/issues/3) |
+| `ios`     | ⚖️ [#3](https://github.com/Redot-Engine/redocker/issues/3) |
 
-`✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working
+`✅`= verified to work **|** `❓`= unknown status **|** `❌`= known to not be working **|** `⚖️`= Not Possible due to License
 
 ### Version
 
